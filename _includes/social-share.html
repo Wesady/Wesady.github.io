@@ -5,92 +5,122 @@
     <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: "Share on" }}</h4>
   {% endif %}
 
-  <a href="http://service.weibo.com/share/share.php?url={{ base_path | url_encode }}{{ page.url | url_encode }}&title={{ page.title | url_encode }}" class="btn btn--weibo" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 微博" target="_blank"><i class="fab fa-weibo" aria-hidden="true"></i><span> 微博</span></a>
+  <a href="http://service.weibo.com/share/share.php?url={{ base_path | url_encode }}{{ page.url | url_encode }}&title={{ page.title | url_encode }}" class="btn btn--weibo" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Weibo" target="_blank"><i class="fab fa-weibo" aria-hidden="true"></i><span> Weibo</span></a>
 
-  <a href="javascript:void(0);" class="btn btn--bilibili" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 哔哩哔哩" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', '哔哩哔哩')"><i class="fab fa-bilibili" aria-hidden="true"></i><span> 哔哩哔哩</span></a>
+  <a href="javascript:void(0);" class="btn btn--bilibili" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Bilibili" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', 'Bilibili')"><i class="fab fa-bilibili" aria-hidden="true"></i><span> Bilibili</span></a>
 
-  <a href="javascript:void(0);" class="btn btn--zhihu" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 知乎" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', '知乎')"><i class="fab fa-zhihu" aria-hidden="true"></i><span> 知乎</span></a>
+  <a href="javascript:void(0);" class="btn btn--zhihu" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Zhihu" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', 'Zhihu')"><i class="fab fa-zhihu" aria-hidden="true"></i><span> Zhihu</span></a>
 
-  <a href="javascript:void(0);" class="btn btn--qq" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} QQ" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', 'QQ')"><i class="fab fa-qq" aria-hidden="true"></i><span> QQ</span></a>
+  <a href="javascript:void(0);" class="btn btn--qq" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} QQ" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', 'QQ')"><i class="fab fa-qq" aria-hidden="true"></i><span> QQ</span></a>
 
-  <a href="javascript:void(0);" class="btn btn--wechat" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 微信" onclick="showQRCode('{{ base_path }}{{ page.url }}')"><i class="fab fa-weixin" aria-hidden="true"></i><span> 微信</span></a>
+  <a href="javascript:void(0);" class="btn btn--wechat" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} WeChat" onclick="showQRCode('{{ base_path }}{{ page.url }}')"><i class="fab fa-weixin" aria-hidden="true"></i><span> WeChat</span></a>
 
-  <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ base_path | url_encode }}{{ page.url | url_encode }}" class="btn btn--twitter" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} Twitter" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ base_path | url_encode }}{{ page.url | url_encode }}" class="btn btn--twitter" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Twitter" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u={{ base_path | url_encode }}{{ page.url | url_encode }}" class="btn btn--facebook" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} Facebook" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u={{ base_path | url_encode }}{{ page.url | url_encode }}" class="btn btn--facebook" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} Facebook" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ base_path | url_encode }}{{ page.url | url_encode }}&title={{ page.title | url_encode }}" class="btn btn--linkedin" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} LinkedIn" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ base_path | url_encode }}{{ page.url | url_encode }}&title={{ page.title | url_encode }}" class="btn btn--linkedin" title="{{ site.data.ui-text[site.locale].share_on_label | default: 'Share on' }} LinkedIn" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 <style>
-.page__share {
-  .btn {
-    color: #fff;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 8px 20px;
-    font-size: 0.75em;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color .3s ease-in-out;
-  }
+.page__share .btn {
+  color: #fff;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 8px 20px;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color .3s ease-in-out;
+}
 
-  .btn--weibo {
-    background-color: #e6162d;
-    &:hover {
-      background-color: #d41528;
-    }
-  }
+.page__share .btn--weibo {
+  background-color: #e6162d;
+}
+.page__share .btn--weibo:hover {
+  background-color: #d41528;
+}
 
-  .btn--bilibili {
-    background-color: #00a1d6;
-    &:hover {
-      background-color: #0092c1;
-    }
-  }
+.page__share .btn--bilibili {
+  background-color: #00a1d6;
+}
+.page__share .btn--bilibili:hover {
+  background-color: #0092c1;
+}
 
-  .btn--zhihu {
-    background-color: #0084ff;
-    &:hover {
-      background-color: #0077e6;
-    }
-  }
+.page__share .btn--zhihu {
+  background-color: #0084ff;
+}
+.page__share .btn--zhihu:hover {
+  background-color: #0077e6;
+}
 
-  .btn--qq {
-    background-color: #12b7f5;
-    &:hover {
-      background-color: #0da2db;
-    }
-  }
+.page__share .btn--qq {
+  background-color: #12b7f5;
+}
+.page__share .btn--qq:hover {
+  background-color: #0da2db;
+}
 
-  .btn--wechat {
-    background-color: #7bb32e;
-    &:hover {
-      background-color: #6ca029;
-    }
-  }
+.page__share .btn--wechat {
+  background-color: #7bb32e;
+}
+.page__share .btn--wechat:hover {
+  background-color: #6ca029;
+}
 
-  .btn--twitter {
-    background-color: #1da1f2;
-    &:hover {
-      background-color: #0c90df;
-    }
-  }
+.page__share .btn--twitter {
+  background-color: #1da1f2;
+}
+.page__share .btn--twitter:hover {
+  background-color: #0c90df;
+}
 
-  .btn--facebook {
-    background-color: #3b5998;
-    &:hover {
-      background-color: #344e86;
-    }
-  }
+.page__share .btn--facebook {
+  background-color: #3b5998;
+}
+.page__share .btn--facebook:hover {
+  background-color: #344e86;
+}
 
-  .btn--linkedin {
-    background-color: #0077b5;
-    &:hover {
-      background-color: #006a9d;
-    }
-  }
+.page__share .btn--linkedin {
+  background-color: #0077b5;
+}
+.page__share .btn--linkedin:hover {
+  background-color: #006a9d;
 }
 </style>
+
+<script>
+function copyToClipboard(text, platform) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      alert('Link copied to clipboard. Please share manually on ' + platform + '.');
+    }, function(err) {
+      console.error('Unable to copy text: ', err);
+    });
+  } else {
+    // fallback for older browsers
+    var textArea = document.createElement("textarea");
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      var successful = document.execCommand('copy');
+      var msg = successful ? 'successful' : 'unsuccessful';
+      alert('Copying text command was ' + msg + '. Please share manually on ' + platform + '.');
+    } catch (err) {
+      console.error('Unable to copy text: ', err);
+    }
+    document.body.removeChild(textArea);
+  }
+}
+
+function showQRCode(url) {
+  var qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent(url);
+  window.open(qrUrl, 'qr', 'width=300,height=300');
+}
+</script>
