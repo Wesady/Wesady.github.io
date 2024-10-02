@@ -5,13 +5,11 @@
     <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: "Share on" }}</h4>
   {% endif %}
 
-  <a href="http://service.weibo.com/share/share.php?url={{ base_path | url_encode }}{{ page.url | url_encode }}&title={{ page.title | url_encode }}" class="btn btn--weibo" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 微博" target="_blank"><i class="fab fa-weibo" aria-hidden="true"></i><span> 微博</span></a>
-
   <a href="javascript:void(0);" class="btn btn--bilibili" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 哔哩哔哩" onclick="copyToClipboard('{{ base_path }}{{ page.url }}')"><i class="fab fa-bilibili" aria-hidden="true"></i><span> 哔哩哔哩</span></a>
 
-  <a href="https://www.zhihu.com/share?url={{ base_path | url_encode }}{{ page.url | url_encode }}&title={{ page.title | url_encode }}" class="btn btn--zhihu" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 知乎" target="_blank"><i class="fab fa-zhihu" aria-hidden="true"></i><span> 知乎</span></a>
+  <a href="javascript:void(0);" class="btn btn--zhihu" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 知乎" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', '知乎')"><i class="fab fa-zhihu" aria-hidden="true"></i><span> 知乎</span></a>
 
-  <a href="javascript:void(0);" class="btn btn--qq" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} QQ" onclick="window.open('https://connect.qq.com/widget/shareqq/index.html?url={{ base_path | url_encode }}{{ page.url | url_encode }}&title={{ page.title | url_encode }}&source={{ site.title | url_encode }}', 'qq', 'width=720,height=520');"><i class="fab fa-qq" aria-hidden="true"></i><span> QQ</span></a>
+  <a href="javascript:void(0);" class="btn btn--qq" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} QQ" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', 'QQ')"><i class="fab fa-qq" aria-hidden="true"></i><span> QQ</span></a>
 
   <a href="javascript:void(0);" class="btn btn--wechat" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 微信" onclick="window.open('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ base_path | url_encode }}{{ page.url | url_encode }}', 'qr', 'width=300,height=300');"><i class="fab fa-weixin" aria-hidden="true"></i><span> 微信</span></a>
 
