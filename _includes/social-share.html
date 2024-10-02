@@ -2,7 +2,7 @@
 
 <section class="page__share">
   {% if site.data.ui-text[site.locale].share_on_label %}
-    <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: "分享到" }}</h4>
+    <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: "Share on" }}</h4>
   {% endif %}
 
   <a href="http://service.weibo.com/share/share.php?url={{ base_path | url_encode }}{{ page.url | url_encode }}&title={{ page.title | url_encode }}" class="btn btn--weibo" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 微博" target="_blank"><i class="fab fa-weibo" aria-hidden="true"></i><span> 微博</span></a>
@@ -11,9 +11,9 @@
 
   <a href="javascript:void(0);" class="btn btn--zhihu" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 知乎" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', '知乎')"><i class="fab fa-zhihu" aria-hidden="true"></i><span> 知乎</span></a>
 
-  <a href="javascript:void(0);" class="btn btn--qq" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} QQ" onclick="window.open('https://connect.qq.com/widget/shareqq/index.html?url={{ base_path | url_encode }}{{ page.url | url_encode }}&title={{ page.title | url_encode }}&source={{ site.title | url_encode }}', 'qq', 'width=720,height=520');"><i class="fab fa-qq" aria-hidden="true"></i><span> QQ</span></a>
+  <a href="javascript:void(0);" class="btn btn--qq" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} QQ" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', 'QQ')"><i class="fab fa-qq" aria-hidden="true"></i><span> QQ</span></a>
 
-  <a href="javascript:void(0);" class="btn btn--wechat" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 微信" onclick="window.open('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ base_path | url_encode }}{{ page.url | url_encode }}', 'qr', 'width=300,height=300');"><i class="fab fa-weixin" aria-hidden="true"></i><span> 微信</span></a>
+  <a href="javascript:void(0);" class="btn btn--wechat" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 微信" onclick="showQRCode('{{ base_path }}{{ page.url }}')"><i class="fab fa-weixin" aria-hidden="true"></i><span> 微信</span></a>
 
   <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ base_path | url_encode }}{{ page.url | url_encode }}" class="btn btn--twitter" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} Twitter" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
@@ -22,12 +22,75 @@
   <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ base_path | url_encode }}{{ page.url | url_encode }}&title={{ page.title | url_encode }}" class="btn btn--linkedin" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} LinkedIn" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
-<script>
-function copyToClipboard(text, platform) {
-  navigator.clipboard.writeText(text).then(function() {
-    alert('链接已复制到剪贴板。请前往' + platform + '手动分享。');
-  }, function(err) {
-    console.error('无法复制文本: ', err);
-  });
+<style>
+.page__share {
+  .btn {
+    color: #fff;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 8px 20px;
+    font-size: 0.75em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color .3s ease-in-out;
+  }
+
+  .btn--weibo {
+    background-color: #e6162d;
+    &:hover {
+      background-color: #d41528;
+    }
+  }
+
+  .btn--bilibili {
+    background-color: #00a1d6;
+    &:hover {
+      background-color: #0092c1;
+    }
+  }
+
+  .btn--zhihu {
+    background-color: #0084ff;
+    &:hover {
+      background-color: #0077e6;
+    }
+  }
+
+  .btn--qq {
+    background-color: #12b7f5;
+    &:hover {
+      background-color: #0da2db;
+    }
+  }
+
+  .btn--wechat {
+    background-color: #7bb32e;
+    &:hover {
+      background-color: #6ca029;
+    }
+  }
+
+  .btn--twitter {
+    background-color: #1da1f2;
+    &:hover {
+      background-color: #0c90df;
+    }
+  }
+
+  .btn--facebook {
+    background-color: #3b5998;
+    &:hover {
+      background-color: #344e86;
+    }
+  }
+
+  .btn--linkedin {
+    background-color: #0077b5;
+    &:hover {
+      background-color: #006a9d;
+    }
+  }
 }
-</script>
+</style>
