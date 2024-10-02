@@ -5,26 +5,37 @@
     <h4 class="page__share-title">{{ site.data.ui-text[site.locale].share_on_label | default: "Share on" }}</h4>
   {% endif %}
 
-  <a href="javascript:void(0);" class="btn btn--bilibili" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 哔哩哔哩" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', '哔哩哔哩')"><i class="fab fa-bilibili" aria-hidden="true"></i></a>
+  <div class="share-buttons">
+    <a href="javascript:void(0);" class="btn btn--bilibili" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 哔哩哔哩" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', '哔哩哔哩')"><i class="fab fa-bilibili" aria-hidden="true"></i></a>
 
-  <a href="javascript:void(0);" class="btn btn--zhihu" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 知乎" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', '知乎')"><i class="fab fa-zhihu" aria-hidden="true"></i></a>
+    <a href="javascript:void(0);" class="btn btn--zhihu" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 知乎" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', '知乎')"><i class="fab fa-zhihu" aria-hidden="true"></i></a>
 
-  <a href="javascript:void(0);" class="btn btn--qq" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} QQ" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', 'QQ')"><i class="fab fa-qq" aria-hidden="true"></i></a>
+    <a href="javascript:void(0);" class="btn btn--qq" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} QQ" onclick="copyToClipboard('{{ base_path }}{{ page.url }}', 'QQ')"><i class="fab fa-qq" aria-hidden="true"></i></a>
 
-  <a href="javascript:void(0);" class="btn btn--wechat" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 微信" onclick="window.open('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ base_path | url_encode }}{{ page.url | url_encode }}', 'qr', 'width=300,height=300');"><i class="fab fa-weixin" aria-hidden="true"></i></a>
+    <a href="javascript:void(0);" class="btn btn--wechat" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} 微信" onclick="window.open('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ base_path | url_encode }}{{ page.url | url_encode }}', 'qr', 'width=300,height=300');"><i class="fab fa-weixin" aria-hidden="true"></i></a>
 
-  <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ base_path | url_encode }}{{ page.url | url_encode }}" class="btn btn--twitter" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} Twitter" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+    <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ base_path | url_encode }}{{ page.url | url_encode }}" class="btn btn--twitter" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} Twitter" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u={{ base_path | url_encode }}{{ page.url | url_encode }}" class="btn btn--facebook" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} Facebook" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ base_path | url_encode }}{{ page.url | url_encode }}" class="btn btn--facebook" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} Facebook" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ base_path | url_encode }}{{ page.url | url_encode }}&title={{ page.title | url_encode }}" class="btn btn--linkedin" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} LinkedIn" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ base_path | url_encode }}{{ page.url | url_encode }}&title={{ page.title | url_encode }}" class="btn btn--linkedin" title="{{ site.data.ui-text[site.locale].share_on_label | default: '分享到' }} LinkedIn" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+  </div>
 </section>
 
 <style>
+.page__share {
+  text-align: center;
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .page__share .btn {
   color: #fff;
-  margin-right: 5px;
-  margin-bottom: 5px;
+  margin: 5px;
   padding: 5px 10px;
   font-size: 0.75em;
   text-align: center;
