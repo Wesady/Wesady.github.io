@@ -34,4 +34,4 @@ Publications
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Served as the Deputy Director of Publicity Department (2020-2021) and Vice President (2021-2022) of the Artificial Intelligence and Mathematical Modeling Association at Nanjing University of Chinese Medicine
